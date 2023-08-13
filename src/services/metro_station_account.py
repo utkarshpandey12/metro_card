@@ -24,13 +24,13 @@ class MetroStationAccountsService(MetroStationAccount):
     self.station_account_summary[station_name][passenger_type] += 1
 
   def get_stations_account_summary_data(self):
-    count_summary = {}
     for station,station_data in self.station_account_summary.items():
+      count_summary = {}
       for item,data in station_data.items():
         if data!=0 and item in ['SENIOR_CITIZEN','ADULT','KID']:
           count_summary[item] = data
     
-      self.station_account_summary[station]['top3'] = Counter(count_summary).most_common(3)
+      self.station_account_summary[station]['top3'] = sorted(Counter(count_summary).most_common(3), key=lambda x: x[0])
 
     return self.station_account_summary
 
