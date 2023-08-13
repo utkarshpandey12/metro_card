@@ -2,6 +2,10 @@
 * Python 3.x
 * Pip
 
+# Introductions
+* This repository contains solutions to the geektrust metrocard problem
+* Read more about the problem statement and requirements at https://www.geektrust.com/challenge/metro-card
+
 # How to run the code
 
 ```
