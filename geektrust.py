@@ -26,7 +26,8 @@ def main():
 
         elif line == 'PRINT_SUMMARY':
             data = metro_service.get_stations_accounts_summary()
-            for stations,station_account_summary in data.items():
+            sorted_data = {key: value for key, value in sorted(data.items(),reverse=True)}
+            for stations,station_account_summary in sorted_data.items():
                 print(f'TOTAL_COLLECTION {stations} {station_account_summary["amt_collected"]} {station_account_summary["discount_offered_amt"]}')
                 print('PASSENGER_TYPE_SUMMARY')
                 for items in station_account_summary['top3']:
