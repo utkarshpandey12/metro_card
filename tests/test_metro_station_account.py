@@ -56,7 +56,7 @@ class TestMetroStationAccountsService(unittest.TestCase):
     def test_get_stations_account_summary_data(self):
         
         station_account_summary = self.metro_station_account_service.get_stations_account_summary_data()
-        self.assertDictContainsSubset(station_account_summary,{'AIRPORT':{'amt_collected': 100, 'discount_offered_amt': 100, 'SENIOR_CITIZEN': 0, 'ADULT': 1, 'KID': 0, 'top3': [('ADULT', 1)]}})
+        self.assertDictEqual(station_account_summary,{'AIRPORT':{'amt_collected': 100, 'discount_offered_amt': 100, 'SENIOR_CITIZEN': 0, 'ADULT': 1, 'KID': 0, 'top3': [('ADULT', 1)]}})
         
 
 

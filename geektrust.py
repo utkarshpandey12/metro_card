@@ -1,5 +1,7 @@
 from sys import argv
 from src.metro_service_main import MetroService
+from src.services.metro_card_user import MetroCardUserService
+from src.services.metro_station_account import MetroStationAccountsService
 
 
 def main():
@@ -12,7 +14,7 @@ def main():
     file_path = argv[1]
     f = open(file_path, 'r')
     Lines = f.readlines()
-    metro_service = MetroService()
+    metro_service = MetroService(metro_card_user_service = MetroCardUserService(),metro_station_account_service=MetroStationAccountsService())
     for line in Lines:
         command_string = line.split(' ')
         if 'BALANCE' in line:

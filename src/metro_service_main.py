@@ -1,6 +1,3 @@
-from .services.metro_card_user import MetroCardUserService
-from .services.metro_station_account import MetroStationAccountsService
-
 
 class MetroService():
 
@@ -10,12 +7,11 @@ class MetroService():
     CHECK IN CMD executes -> checkin_service() method
     """
 
-    def __init__(self):
-        self.metro_card_user_service = MetroCardUserService()
-        self.metro_station_accounts_service = MetroStationAccountsService()
-        self.count = 0
+    def __init__(self,metro_card_user_service,metro_station_account_service):
+        self.metro_card_user_service = metro_card_user_service
+        self.metro_station_accounts_service = metro_station_account_service
         
-
+        
     def create_metro_card_user(self,card_id,initial_card_balance):
         """
         Creates a new MetroCardUser with card_id and initial balance
